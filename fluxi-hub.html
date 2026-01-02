@@ -1517,5 +1517,62 @@
     </script>
     <script crossorigin="" type="text/javascript" src="https://codesandbox.io/static/js/watermark-button.eeb14a97b.js"></script>
   
+  <!-- Contact modal + button -->
+  <div id="contact-modal" style="display:none;position:fixed;inset:0;align-items:center;justify-content:center;z-index:9999">
+    <div style="position:fixed;inset:0;background:rgba(0,0,0,0.6)"></div>
+    <div style="background:#0f1724;padding:18px;border-radius:12px;max-width:600px;width:94%;margin:auto;position:relative;z-index:1;color:#e6eef8">
+      <h3 style="margin:0 0 8px 0">Contact us</h3>
+      <p style="margin:0 0 12px 0;color:#bcd2ee">Send a tip or message — admins can view messages.</p>
+      <form id="contactFormHub">
+        <div style="display:flex;gap:8px;margin-bottom:8px">
+          <input id="h_name" placeholder="Your name" style="flex:1;padding:8px;border-radius:6px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit">
+          <input id="h_email" placeholder="Email (optional)" style="flex:1;padding:8px;border-radius:6px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit">
+        </div>
+        <textarea id="h_message" placeholder="Message" rows="4" style="width:100%;padding:8px;border-radius:6px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit"></textarea>
+        <div style="display:flex;gap:8px;margin-top:10px;justify-content:flex-end">
+          <button type="button" id="cancelContactHub" style="background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px;border-radius:8px;color:inherit">Cancel</button>
+          <button type="submit" style="padding:8px 12px;border-radius:8px;background:#2b6df6;color:white;border:none">Send</button>
+        </div>
+        <div id="contactResultHub" style="margin-top:8px;color:#9ad;display:none"></div>
+      </form>
+    </div>
+  </div>
+
+  <button id="contactBtnHub" title="Contact us" style="position:fixed;right:18px;bottom:18px;padding:12px 14px;border-radius:999px;background:#2b6df6;color:white;border:none;z-index:9998;cursor:pointer">Contact Us</button>
+
+  <script>
+    (function(){
+      const modal = document.getElementById('contact-modal');
+      const btn = document.getElementById('contactBtnHub');
+      const cancel = document.getElementById('cancelContactHub');
+      const form = document.getElementById('contactFormHub');
+      const result = document.getElementById('contactResultHub');
+
+      function open() { modal.style.display = 'flex'; }
+      function close() { modal.style.display = 'none'; result.style.display='none'; form.reset(); }
+
+      btn.addEventListener('click', open);
+      cancel.addEventListener('click', close);
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('h_name').value.trim() || 'Anonymous';
+        const email = document.getElementById('h_email').value.trim() || '';
+        const message = document.getElementById('h_message').value.trim();
+        if (!message) { result.textContent = 'Please add a message.'; result.style.display='block'; return; }
+
+        try {
+          const key = 'fluxi_messages';
+          const existing = JSON.parse(localStorage.getItem(key) || '[]');
+          existing.push({ name, email, message, timestamp: Date.now() });
+          localStorage.setItem(key, JSON.stringify(existing));
+          result.textContent = 'Message sent. Thanks!'; result.style.display='block';
+          setTimeout(close, 1200);
+        } catch (err) {
+          result.textContent = 'Failed to send message'; result.style.display='block';
+        }
+      });
+    })();
+  </script>
 
 </body></html>
