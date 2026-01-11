@@ -2302,7 +2302,8 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-4xl px-2">
 
         <!-- V4 (NEW) -->
-        <a href="https://s99868-8080.csb.app/" target="_blank" class="block group relative md:col-span-2">
+        <a href="#" onclick="openInAboutBlank('https://s99868-8080.csb.app/')"
+          class="block group relative md:col-span-2">
           <div
             class="glass-panel interactive-card p-8 rounded-2xl h-full flex flex-col items-center text-center relative overflow-hidden border-blue-500/40">
             <div
@@ -2506,7 +2507,7 @@
                       
 
                       <!-- V4 (NEW) -->
-                      <a href="https://s99868-8080.csb.app/" target="_blank" class="block group relative md:col-span-2">
+                      <a href="#" onclick="openInAboutBlank('https://s99868-8080.csb.app/')" class="block group relative md:col-span-2">
                           <div class="glass-panel interactive-card p-8 rounded-2xl h-full flex flex-col items-center text-center relative overflow-hidden border-blue-500/40">
                               <div class="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                               
@@ -2780,6 +2781,21 @@
       App.navigate("home");
       document.addEventListener("keydown", App.unlockListener);
     };
+
+    function openInAboutBlank(url) {
+      var win = window.open('about:blank');
+      if (win) {
+        win.document.body.style.margin = '0';
+        win.document.body.style.height = '100vh';
+        var iframe = win.document.createElement('iframe');
+        iframe.style.border = 'none';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.margin = '0';
+        iframe.src = url;
+        win.document.body.appendChild(iframe);
+      }
+    }
   </script>
   <script crossorigin="" type="text/javascript"
     src="https://codesandbox.io/static/js/watermark-button.eeb14a97b.js"></script>
