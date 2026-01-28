@@ -1229,6 +1229,54 @@
         line-height: 1;
       }
     }
+
+    <<<<<<< HEAD=======
+
+    /* DISABLED / POLICE TAPE STYLES */
+    .disabled-card {
+      position: relative;
+      /* opacity: 0.8; - Removed to make tape vibrant */
+      pointer-events: none;
+      user-select: none;
+      /* filter: grayscale(0.8) contrast(1.2); - Removed to make tape colors pop */
+    }
+
+    .police-tape {
+      position: absolute;
+      top: 50%;
+      left: -10%;
+      width: 120%;
+      background: repeating-linear-gradient(45deg,
+          #FFEA00,
+          #FFEA00 20px,
+          #000000 20px,
+          #000000 40px);
+      color: #000000;
+      /* Changed text back to black for better contrast on neon yellow, or keep white? User asked for white text previously. */
+      /* User said: "text for both white" previously. I will keep white, but maybe add a text outline or shadow if it's hard to read on bright yellow. 
+         Actually, white on bright yellow is poor contrast. But user request comes first. 
+         Wait, contrast might be why they think it's gloomy if I used gold? 
+         On #FFEA00 white text is nearly invisible. 
+         However, the user *specifically* asked for white text in the previous turn. 
+         "mjake both tapes yellow themed and the text for both white"
+         I will stick to white text but maybe use a text-shadow/stroke to ensure it pops. */
+      color: #FFFFFF;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.5rem;
+      font-weight: 900;
+      text-align: center;
+      transform: rotate(-5deg) translateY(-50%);
+      padding: 12px 0;
+      z-index: 50;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      border-top: 2px solid rgba(255, 255, 255, 0.4);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    >>>>>>>50c0eb02baaa53f40ed721e03896f7fcca4dba48
   </style>
   <style>
     *,
@@ -2267,7 +2315,10 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-4xl px-2">
 
 
-        <a href="https://fluxiv3.tiiny.site/" target="_blank" class="block group relative md:col-span-2">
+        <!-- NOTIFICATION AREA (For "Exploits Unlocked" toast) -->
+        <div id="toast-container" class="fixed bottom-8 right-8 z-50 pointer-events-none"></div>
+
+        <<<<<<< HEAD <a href="https://fluxiv3.tiiny.site/" target="_blank" class="block group relative md:col-span-2">
           <div
             class="glass-panel interactive-card p-8 rounded-2xl h-full flex flex-col items-center text-center relative overflow-hidden border-emerald-400/30">
             <div
@@ -2287,43 +2338,45 @@
               Fast. Private. Clean.
             </p>
           </div>
-        </a>
+          </a>
 
 
-        <a href="https://fluxi2.vercel.app/" target="_blank" class="block group relative md:col-span-2">
-          <div
-            class="glass-panel interactive-card p-8 rounded-2xl h-full flex flex-col items-center text-center relative overflow-hidden border-accent/30">
-            <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            </div>
+          <a href="https://fluxi2.vercel.app/" target="_blank" class="block group relative md:col-span-2">
             <div
-              class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4 relative z-10 shadow-[0_0_20px_rgba(106,167,255,0.3)]">
-              <i class="fa-solid fa-bolt text-accent text-xl"></i>
+              class="glass-panel interactive-card p-8 rounded-2xl h-full flex flex-col items-center text-center relative overflow-hidden border-accent/30">
+              <div
+                class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              </div>
+              <div
+                class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4 relative z-10 shadow-[0_0_20px_rgba(106,167,255,0.3)]">
+                <i class="fa-solid fa-bolt text-accent text-xl"></i>
+              </div>
+              <h2 class="text-3xl font-bold mb-3 text-white relative z-10 group-hover:text-accent transition-colors">
+                Fluxi
+                V2</h2>
+              <p class="text-white/60 text-sm max-w-lg leading-relaxed relative z-10">
+                Powered by Fluxi’s own fully custom-built search engine. Faster, safer, and not dependent on external
+                frameworks.
+              </p>
             </div>
-            <h2 class="text-3xl font-bold mb-3 text-white relative z-10 group-hover:text-accent transition-colors">Fluxi
-              V2</h2>
-            <p class="text-white/60 text-sm max-w-lg leading-relaxed relative z-10">
-              Powered by Fluxi’s own fully custom-built search engine. Faster, safer, and not dependent on external
-              frameworks.
-            </p>
-          </div>
-        </a>
+          </a>
 
-        <a href="https://premium.starsclm.com/" target="_blank" class="block group relative md:col-span-2">
-          <div class="glass-panel interactive-card p-6 rounded-2xl h-full flex items-center gap-6 text-left">
-            <div
-              class="w-12 h-12 shrink-0 rounded-full bg-purple-500/10 flex items-center justify-center border border-purple-500/20">
-              <i class="fa-solid fa-gem text-purple-400"></i>
+          <a href="https://premium.starsclm.com/" target="_blank" class="block group relative md:col-span-2">
+            <div class="glass-panel interactive-card p-6 rounded-2xl h-full flex items-center gap-6 text-left">
+              <div
+                class="w-12 h-12 shrink-0 rounded-full bg-purple-500/10 flex items-center justify-center border border-purple-500/20">
+                <i class="fa-solid fa-gem text-purple-400"></i>
+              </div>
+              <div>
+                <h2 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">Fluxi V1</h2>
+                <p class="text-white/50 text-sm mt-1">Premium speed &amp; reliability using a strong search engine.</p>
+              </div>
+              <div
+                class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 transform duration-300">
+                <i class="fa-solid fa-arrow-right text-white/40"></i>
+              </div>
             </div>
-            <div>
-              <h2 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">Fluxi V1</h2>
-              <p class="text-white/50 text-sm mt-1">Premium speed &amp; reliability using a strong search engine.</p>
-            </div>
-            <div
-              class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 transform duration-300">
-              <i class="fa-solid fa-arrow-right text-white/40"></i>
-            </div>
-          </div>
-        </a>
+          </a>
 
 
       </div>
@@ -2350,6 +2403,7 @@
           canvas.height = height;
           initStarsArray();
         };
+
 
         const initStarsArray = () => {
           stars = [];
@@ -2453,46 +2507,65 @@
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-4xl px-2">
                       
 
-<a href="https://fluxiv3.tiiny.site/" target="_blank" class="block group relative md:col-span-2">
-    <div class="glass-panel interactive-card p-8 rounded-2xl h-full flex flex-col items-center text-center relative overflow-hidden border-emerald-400/30">
-        <div class="absolute inset-0 bg-emerald-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-        <div class="w-12 h-12 rounded-xl bg-emerald-400/20 flex items-center justify-center mb-4 relative z-10 shadow-[0_0_20px_rgba(52,211,153,0.35)]">
-            <i class="fa-solid fa-rocket text-emerald-400 text-xl"></i>
-        </div>
-
-        <h2 class="text-3xl font-bold mb-3 text-white relative z-10 group-hover:text-emerald-400 transition-colors">
-            Fluxi V3
-        </h2>
-
-        <p class="text-white/60 text-sm max-w-lg leading-relaxed relative z-10">
-            Fast. Private. Clean.
-        </p>
-    </div>
-</a>
-
-
-                      <a href="https://fluxi2.vercel.app/" target="_blank" class="block group relative md:col-span-2">
-                          <div class="glass-panel interactive-card p-8 rounded-2xl h-full flex flex-col items-center text-center relative overflow-hidden border-accent/30">
-                              <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                              <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4 relative z-10 shadow-[0_0_20px_rgba(106,167,255,0.3)]">
-                                  <i class="fa-solid fa-bolt text-accent text-xl"></i>
+                      <!-- V4 (NEW) -->
+                      <a href="https://234ck6-8080.csb.app" class="block group relative md:col-span-2">
+                          <div class="glass-panel interactive-card p-8 rounded-2xl h-full flex flex-col items-center text-center relative overflow-hidden border-blue-500/40">
+                              <div class="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                              
+                              <!-- Badge -->
+                              <div class="absolute top-4 right-4 bg-blue-500/20 border border-blue-500/40 text-blue-400 text-xs font-bold px-3 py-1 rounded-full animate-pulse shadow-[0_0_10px_rgba(59,130,246,0.3)]">
+                                  NEW v4
                               </div>
-                              <h2 class="text-3xl font-bold mb-3 text-white relative z-10 group-hover:text-accent transition-colors">Fluxi V2</h2>
-                              <p class="text-white/60 text-sm max-w-lg leading-relaxed relative z-10">
-                                  Powered by Fluxi’s own fully custom-built search engine. Faster, safer, and not dependent on external frameworks.
+
+                              <div class="w-14 h-14 rounded-2xl bg-blue-500/20 flex items-center justify-center mb-5 relative z-10 shadow-[0_0_25px_rgba(59,130,246,0.4)] group-hover:scale-110 transition-transform duration-300">
+                                  <i class="fa-solid fa-atom text-blue-400 text-2xl"></i>
+                              </div>
+
+                              <h2 class="text-4xl font-bold mb-3 text-white relative z-10 group-hover:text-blue-400 transition-colors drop-shadow-lg">
+                                  Fluxi V4
+                              </h2>
+
+                              <p class="text-white/70 text-base max-w-lg leading-relaxed relative z-10 font-medium">
+                                  The latest generation. Unmatched speed, stability, and unblocking power.
                               </p>
                           </div>
                       </a>
 
-                      <a href="https://premium.starsclm.com/" target="_blank" class="block group relative md:col-span-2">
-                           <div class="glass-panel interactive-card p-6 rounded-2xl h-full flex items-center gap-6 text-left">
-                              <div class="w-12 h-12 shrink-0 rounded-full bg-purple-500/10 flex items-center justify-center border border-purple-500/20">
-                                  <i class="fa-solid fa-gem text-purple-400"></i>
+                      <!-- V3 (DISABLED) -->
+                      <div class="block relative md:col-span-1 disabled-card">
+                          <div class="glass-panel p-6 rounded-2xl h-full flex flex-col items-center text-center relative overflow-hidden border-emerald-400/20">
+                              <div class="police-tape flex items-center justify-center">Blocked</div>
+                              
+                              <div class="w-10 h-10 rounded-xl bg-emerald-400/10 flex items-center justify-center mb-3 opacity-50">
+                                  <i class="fa-solid fa-rocket text-emerald-400/50 text-lg"></i>
+                              </div>
+                              <h2 class="text-2xl font-bold mb-2 text-white/50">Fluxi V3</h2>
+                              <p class="text-white/30 text-xs">Service discontinued.</p>
+                          </div>
+                      </div>
+
+                      <!-- V2 (DISABLED) -->
+                      <div class="block relative md:col-span-1 disabled-card">
+                          <div class="glass-panel p-6 rounded-2xl h-full flex flex-col items-center text-center relative overflow-hidden border-accent/20">
+                               <div class="police-tape flex items-center justify-center" style="transform: rotate(5deg) translateY(-50%);">BROKEN</div>
+
+                              <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-3 opacity-50">
+                                  <i class="fa-solid fa-bolt text-accent/50 text-lg"></i>
+                              </div>
+                              <h2 class="text-2xl font-bold mb-2 text-white/50">Fluxi V2</h2>
+                              <p class="text-white/30 text-xs">System failure.</p>
+                          </div>
+                      </div>
+
+                      <!-- V1 (Legacy) -->
+                      <a href="https://premium.starsclm.com/" target="_blank" class="block group relative md:col-span-2 opacity-60 hover:opacity-100 transition-opacity">
+                           <div class="glass-panel interactive-card p-5 rounded-2xl h-full flex items-center gap-5 text-left border-purple-500/20">
+                              <div class="w-10 h-10 shrink-0 rounded-full bg-purple-500/10 flex items-center justify-center border border-purple-500/20">
+                                  <i class="fa-solid fa-gem text-purple-400/80"></i>
                               </div>
                               <div>
-                                  <h2 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">Fluxi V1</h2>
-                                  <p class="text-white/50 text-sm mt-1">Premium speed & reliability using a strong search engine.</p>
+                                  <h2 class="text-lg font-bold text-white group-hover:text-purple-400 transition-colors">Fluxi V1</h2>
+                                  <p class="text-white/40 text-xs mt-0.5">Premium legacy service.</p>
                               </div>
                               <div class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity -translate-x-4 group-hover:translate-x-0 transform duration-300">
                                   <i class="fa-solid fa-arrow-right text-white/40"></i>
